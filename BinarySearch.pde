@@ -23,8 +23,15 @@ private Item[] store =
 };                             
 public int linearSearch(int catNumToFind)
 {
-  //complete this method
-  return -1;
+  int bob = 0;
+  for(int i = 0; i > store.length; i++)
+  {
+    if(store[i] == catNumToFind)
+    {
+      bob = store[i];
+    }
+  }
+  return bob;
 }
 public int recursiveLinearSearch(int catNumToFind, int startIndex)
 {
@@ -32,14 +39,43 @@ public int recursiveLinearSearch(int catNumToFind, int startIndex)
   return -1;
 }
 public int binarySearch(int catNumToFind)
-{
-  //complete this method    
+{ 
+  int low = 0;
+  int high = store.length-1;
+  while(low <= high)
+  {
+    int guess = (high + low)/2;
+    if(store[guess] > catNumToFind)
+    {
+      high = guess -1;
+    }
+    else if(store[guess] < catNumToFind)
+    {
+      low = guess +1;
+    }
+    else
+    {
+     return guess; 
+    }
+  }
+
   return -1;
 }
 public int recursiveBinarySearch(int catNumToFind, int nLow, int nHigh)
 {
-  //complete this method    
-  return -1;
+  int guess = (nLow + nHigh)/2;
+  if(store[guess] > catNumToFind)
+  {
+   recursiveBinarySearch(catNumToFind, nLow, nHigh -1); 
+  } 
+  else if(store[guess] < catNumToFind)
+  {
+    recursiveBinarySearch(catNumToFind,nLow+1, nHigh);
+  }
+  else
+  {
+    return guess;
+  }
 }
 public void setup()
 {
