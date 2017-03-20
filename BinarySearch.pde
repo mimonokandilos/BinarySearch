@@ -35,7 +35,18 @@ public int linearSearch(int catNumToFind)
 }
 public int recursiveLinearSearch(int catNumToFind, int startIndex)
 {
-  //complete this method
+  if(startIndex >= a.length)
+  {
+    return -1;
+  }
+  else if(store[startIndex] == catNumToFind)
+  {
+    return startIndex;
+  }
+  else
+  {
+   recursiveLinearSearch(catNumToFind, startIndex +1); 
+  }
   return -1;
 }
 public int binarySearch(int catNumToFind)
